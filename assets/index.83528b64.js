@@ -64,6 +64,7 @@ var e=Object.defineProperty,t=Object.getOwnPropertySymbols,r=Object.prototype.ha
 `,q=({onChange:e,color:t})=>{const[r,l]=m.exports.useState(!1);return m.exports.createElement("div",null,m.exports.createElement(A,{onClick:()=>l(!r)},m.exports.createElement(M,{color:t})," "),r?m.exports.createElement(U,null,m.exports.createElement(V,{onClick:()=>l(!1)}),m.exports.createElement(g,{onChange:e,color:t})):null)},G=s(c)`
   grid-column: 1 / 3;
   display: grid;
+  overflow: auto;
   align-items: center;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));;
