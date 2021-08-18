@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Card, Checkbox, Slider, FormControlLabel, Typography } from '@material-ui/core'
 import styled from 'styled-components'
-import { ChromePicker } from 'react-color'
+import ColorPicker from './ColorPicker'
 import useStore from '../useStore'
 
 const Container = styled(Card)`
@@ -51,7 +51,7 @@ const EmailStyles: React.FC = () => {
           Font Color
         </Typography>
 
-        <ChromePicker color={styles.fontColor} onChange={(value) => setStyle({ fontColor: value.hex })} />
+        <ColorPicker color={styles.fontColor} onChange={(value) => setStyle({ fontColor: value.hex })} />
       </div>
     </Container>
   )
