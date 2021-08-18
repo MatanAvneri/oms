@@ -7,6 +7,7 @@ import useStore from '../useStore'
 const Container = styled(Card)`
   grid-column: 1 / 3;
   display: grid;
+  overflow: auto;
   align-items: center;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));;
