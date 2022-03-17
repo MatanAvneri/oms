@@ -34,46 +34,46 @@ const AppContainer = withTheme(styled.div`
 const App: React.FC = () => {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
-console.log('colorMode.toggleColorMode', colorMode.toggleColorMode)
-  return (
-    <ToggleColorMode>
-      <StylesProvider injectFirst>
-        <AppContainer>
-          <IconButton
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-            }}
-            onClick={colorMode.toggleColorMode}
-            color="inherit"
-          >
-            {theme.palette.mode === "dark" ? (
-              <Brightness7Icon />
-            ) : (
-              <Brightness4Icon />
-            )}
-          </IconButton>
 
-          <EmailPreview />
-          <EmailInputs />
-          <EmailStyles />
-        </AppContainer>
-      </StylesProvider>
-    </ToggleColorMode>
+  return (
+    <StylesProvider injectFirst>
+      <AppContainer>
+        <IconButton
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
+          onClick={colorMode.toggleColorMode}
+          color="inherit"
+        >
+          {theme.palette.mode === "dark" ? (
+            <Brightness7Icon />
+          ) : (
+            <Brightness4Icon />
+          )}
+        </IconButton>
+
+        <EmailPreview />
+        <EmailInputs />
+        <EmailStyles />
+      </AppContainer>
+    </StylesProvider>
   );
 };
 
-const ToggleColorMode: React.FC = ({ children }) => {
+const ToggleColorMode: React.VFC = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [mode, setMode] = React.useState<PaletteMode>(
-    prefersDarkMode ? "dark" : "light"
-  );
+  const [mode, setMode] = React.useState<PaletteMode>("light");
+
+  React.useEffect(() => {
+    setMode(prefersDarkMode ? "dark" : "light");
+  }, [prefersDarkMode]);
+
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-          console.log('toggling')
-        setMode(mode === "light" ? "dark" : "light");
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
     }),
     []
@@ -91,9 +91,11 @@ const ToggleColorMode: React.FC = ({ children }) => {
 
   return (
     <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </ColorModeContext.Provider>
   );
 };
 
-export default App;
+export default ToggleColorMode;
