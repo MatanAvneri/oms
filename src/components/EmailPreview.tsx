@@ -25,7 +25,7 @@ const Image = styled.img<StyleProps>`
 `;
 
 const DataSection = styled.div<StyleProps>`
-  border-left: ${(props) => props.emailStyles.fontColor} solid
+  border-left: ${(props) => props.emailStyles.innerBorderColor} solid
     ${(props) => props.emailStyles.innerBorderSize}px;
   color: ${(props) => props.emailStyles.fontColor};
   padding-left: 20px;
@@ -57,6 +57,7 @@ const Preview = React.forwardRef<HTMLTableElement>((_props, ref) => {
     fontColor: styles.fontColor,
     isBorder: styles.isBorder,
     innerBorderSize: styles.innerBorderSize,
+    innerBorderColor: styles.innerBorderColor,
   };
 
   return (
