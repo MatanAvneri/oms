@@ -3,7 +3,7 @@ name: Build CI
 on: [push]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,5 +13,5 @@ jobs:
           node-version: "14"
       - name: Install Dependencies
         run: npm ci
-      - name: Build
-        run: npm run build
+      - name: Prettier
+        run: npx prettier --check .

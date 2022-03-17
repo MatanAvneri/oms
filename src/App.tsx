@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import { ThemeProvider, createTheme } from '@mui/material';
-import { withTheme, StylesProvider } from '@mui/styles'
-import useMediaQuery from '@mui/material/useMediaQuery';
+import React from "react";
+import styled from "styled-components";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { withTheme, StylesProvider } from "@mui/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
-import './App.css'
-import EmailInputs from './components/EmailInputs'
-import EmailPreview from './components/EmailPreview'
-import EmailStyles from './components/EmailStyles';
+import "./App.css";
+import EmailInputs from "./components/EmailInputs";
+import EmailPreview from "./components/EmailPreview";
+import EmailStyles from "./components/EmailStyles";
 
 const AppContainer = withTheme(styled.div`
   display: grid;
@@ -16,20 +16,20 @@ const AppContainer = withTheme(styled.div`
   height: 100vh;
   padding: 5rem;
   grid-gap: 5rem;
-  background: ${props => props.theme.palette.background.default};
-`)
+  background: ${(props) => props.theme.palette.background.default};
+`);
 
 const App: React.FC = () => {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const theme = React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
+          mode: prefersDarkMode ? "dark" : "light",
         },
       }),
-    [prefersDarkMode],
+    [prefersDarkMode]
   );
 
   return (
@@ -42,7 +42,7 @@ const App: React.FC = () => {
         </AppContainer>
       </StylesProvider>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

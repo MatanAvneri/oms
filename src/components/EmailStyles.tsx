@@ -1,8 +1,14 @@
-import * as React from 'react'
-import { Card, Checkbox, Slider, FormControlLabel, Typography } from '@mui/material'
-import styled from 'styled-components'
-import ColorPicker from './ColorPicker'
-import useStore from '../useStore'
+import * as React from "react";
+import {
+  Card,
+  Checkbox,
+  Slider,
+  FormControlLabel,
+  Typography,
+} from "@mui/material";
+import styled from "styled-components";
+import ColorPicker from "./ColorPicker";
+import useStore from "../useStore";
 
 const Container = styled(Card)`
   grid-column: 1 / 3;
@@ -10,14 +16,13 @@ const Container = styled(Card)`
   overflow: auto;
   align-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   grid-gap: 4rem;
   padding: 2rem;
-`
-
+`;
 
 const EmailStyles: React.FC = () => {
-  const { styles, setStyle } = useStore()
+  const { styles, setStyle } = useStore();
   return (
     <Container>
       <div>
@@ -38,32 +43,54 @@ const EmailStyles: React.FC = () => {
           Font Size
         </Typography>
 
-        <Slider min={1} max={100} value={styles.fontSize} onChange={(_e, value) => setStyle({ fontSize: value as number })} aria-labelledby="fontSize-slider" />
+        <Slider
+          min={1}
+          max={100}
+          value={styles.fontSize}
+          onChange={(_e, value) => setStyle({ fontSize: value as number })}
+          aria-labelledby="fontSize-slider"
+        />
       </div>
       <div>
         <Typography id="imgSize-slider" gutterBottom>
           Image Size
         </Typography>
 
-        <Slider min={1} max={1000} value={styles.imageSize} onChange={(_e, value) => setStyle({ imageSize: value as number })} aria-labelledby="imgSize-slider" />
+        <Slider
+          min={1}
+          max={1000}
+          value={styles.imageSize}
+          onChange={(_e, value) => setStyle({ imageSize: value as number })}
+          aria-labelledby="imgSize-slider"
+        />
       </div>
       <div>
         <Typography id="colorPicker" gutterBottom>
           Font Color
         </Typography>
 
-        <ColorPicker color={styles.fontColor} onChange={(value) => setStyle({ fontColor: value.hex })} />
+        <ColorPicker
+          color={styles.fontColor}
+          onChange={(value) => setStyle({ fontColor: value.hex })}
+        />
       </div>
-    <div>
+      <div>
         <Typography id="innerBorderSize-slider" gutterBottom>
-            Inner Border Size
+          Inner Border Size
         </Typography>
 
-        <Slider min={0} max={10} value={styles.innerBorderSize} onChange={(_e, value) => setStyle({ innerBorderSize: value as number })} aria-labelledby="innerBorderSize-slider" />
-    </div>
-
+        <Slider
+          min={0}
+          max={10}
+          value={styles.innerBorderSize}
+          onChange={(_e, value) =>
+            setStyle({ innerBorderSize: value as number })
+          }
+          aria-labelledby="innerBorderSize-slider"
+        />
+      </div>
     </Container>
-  )
-}
+  );
+};
 
-export default EmailStyles
+export default EmailStyles;
