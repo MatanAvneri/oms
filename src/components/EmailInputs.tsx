@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Card, TextField } from '@material-ui/core'
+import { Button, Card, TextField } from '@mui/material'
 import styled from 'styled-components'
 import useStore from '../useStore'
 import { fileToBase64 } from '../imageUtils'

@@ -1,4 +1,4 @@
-import { Button, Card } from '@material-ui/core'
+import { Button, Card } from '@mui/material'
 import * as React from 'react'
 import styled from 'styled-components'
 import useStore, { SupportedStyles } from "../useStore"
