@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, Card, TextField } from '@material-ui/core'
+import { Button, Card, TextField } from '@mui/material'
 import styled from 'styled-components'
 import useStore from '../useStore'
 import { fileToBase64 } from '../imageUtils'
@@ -18,10 +18,10 @@ const EmailInputs: React.FC = () => {
   return (
     <Container>
       <form>
-        <TextField fullWidth label='name' name='name' onChange={(e) => setValue('name', e.target.value)} value={name} />
-        <TextField fullWidth label='phone' name='phone' onChange={(e) => setValue('phone', e.target.value)} value={phone} />
-        <TextField fullWidth label='role' name='role' onChange={(e) => setValue('role', e.target.value)} value={role} />
-        <TextField fullWidth label='website' name='website' onChange={(e) => setValue('website', e.target.value)} value={website} />
+        <TextField variant="standard"  fullWidth label='name' name='name' onChange={(e) => setValue('name', e.target.value)} value={name} />
+        <TextField variant="standard"  fullWidth label='phone' name='phone' onChange={(e) => setValue('phone', e.target.value)} value={phone} />
+        <TextField variant="standard"  fullWidth label='role' name='role' onChange={(e) => setValue('role', e.target.value)} value={role} />
+        <TextField variant="standard"  fullWidth label='website' name='website' onChange={(e) => setValue('website', e.target.value)} value={website} />
         <Button
           variant="contained"
           component="label"

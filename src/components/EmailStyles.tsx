@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, Checkbox, Slider, FormControlLabel, Typography } from '@material-ui/core'
+import { Card, Checkbox, Slider, FormControlLabel, Typography } from '@mui/material'
 import styled from 'styled-components'
 import ColorPicker from './ColorPicker'
 import useStore from '../useStore'

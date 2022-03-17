@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StylesProvider, createTheme, ThemeProvider, withTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { withTheme, StylesProvider } from '@mui/styles'
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import './App.css'
 import EmailInputs from './components/EmailInputs'
@@ -25,7 +26,7 @@ const App: React.FC = () => {
     () =>
       createTheme({
         palette: {
-          type: prefersDarkMode ? 'dark' : 'light',
+          mode: prefersDarkMode ? 'dark' : 'light',
         },
       }),
     [prefersDarkMode],
