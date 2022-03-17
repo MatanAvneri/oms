@@ -64,9 +64,12 @@ const App: React.FC = () => {
 
 const ToggleColorMode: React.VFC = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [mode, setMode] = React.useState<PaletteMode>(
-    prefersDarkMode ? "dark" : "light"
-  );
+  const [mode, setMode] = React.useState<PaletteMode>(undefined);
+
+  React.useEffect(() => {
+    setMode(prefersDarkMode ? "dark" : "light");
+  }, [prefersDarkMode]);
+
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
