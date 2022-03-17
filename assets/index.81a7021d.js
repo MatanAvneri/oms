@@ -7,15 +7,17 @@ var e=Object.defineProperty,t=Object.getOwnPropertySymbols,r=Object.prototype.ha
 `,j=()=>{const{name:e,phone:t,role:r,website:n,setValue:l}=C();return m.exports.createElement(k,null,m.exports.createElement("form",null,m.exports.createElement(d,{variant:"standard",fullWidth:!0,label:"name",name:"name",onChange:e=>l("name",e.target.value),value:e}),m.exports.createElement(d,{variant:"standard",fullWidth:!0,label:"phone",name:"phone",onChange:e=>l("phone",e.target.value),value:t}),m.exports.createElement(d,{variant:"standard",fullWidth:!0,label:"role",name:"role",onChange:e=>l("role",e.target.value),value:r}),m.exports.createElement(d,{variant:"standard",fullWidth:!0,label:"website",name:"website",onChange:e=>l("website",e.target.value),value:n}),m.exports.createElement(p,{variant:"contained",component:"label"},"Upload Logo",m.exports.createElement("input",{onChange:async e=>{var t;const r=(null==(t=e.target.files)?void 0:t.length)?e.target.files[0]:void 0;r&&l("logo",await(async e=>new Promise(((t,r)=>{const n=new FileReader;n.readAsDataURL(e),n.onload=()=>t(n.result),n.onerror=e=>r(e)})))(r))},type:"file",hidden:!0}))))};const $=s.table`
   margin: 0px;
   padding: 10px;
-  border: ${e=>e.emailStyles.fontColor} ${e=>e.emailStyles.isBorder?"1px":0} solid;
+  border: ${e=>e.emailStyles.fontColor}
+    ${e=>e.emailStyles.isBorder?"1px":0} solid;
   word-break: break-all;
 `,I=s.img`
-  width: ${e=>e.emailStyles.imageSize}px;;
-  height: ${e=>e.emailStyles.imageSize}px;;
+  width: ${e=>e.emailStyles.imageSize}px;
+  height: ${e=>e.emailStyles.imageSize}px;
   align-self: center;
   margin-right: 20px;
 `,O=s.div`
-  border-left: ${e=>e.emailStyles.fontColor} solid ${e=>e.emailStyles.innerBorderSize}px;
+  border-left: ${e=>e.emailStyles.fontColor} solid
+    ${e=>e.emailStyles.innerBorderSize}px;
   color: ${e=>e.emailStyles.fontColor};
   padding-left: 20px;
   font-size: ${e=>e.emailStyles.fontSize}px;
@@ -42,7 +44,7 @@ var e=Object.defineProperty,t=Object.getOwnPropertySymbols,r=Object.prototype.ha
   padding: 5px;
   background: #fff;
   border-radius: 1px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   display: inline-block;
   cursor: pointer;
 `,M=s.div`
@@ -50,24 +52,23 @@ var e=Object.defineProperty,t=Object.getOwnPropertySymbols,r=Object.prototype.ha
   height: 14px;
   border-radius: 2px;
   background: ${({color:e})=>e};
-
 `,U=s.div`
-    position: absolute;
-    z-index: 2;
-    transform: translateY(-111%);
+  position: absolute;
+  z-index: 2;
+  transform: translateY(-111%);
 `,V=s.div`
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 `,q=({onChange:e,color:t})=>{const[r,n]=m.exports.useState(!1);return m.exports.createElement("div",null,m.exports.createElement(A,{onClick:()=>n(!r)},m.exports.createElement(M,{color:t})," "),r?m.exports.createElement(U,null,m.exports.createElement(V,{onClick:()=>n(!1)}),m.exports.createElement(x,{onChange:e,color:t})):null)},G=s(c)`
   grid-column: 1 / 3;
   display: grid;
   overflow: auto;
   align-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   grid-gap: 4rem;
   padding: 2rem;
 `,T=()=>{const{styles:e,setStyle:t}=C();return m.exports.createElement(G,null,m.exports.createElement("div",null,m.exports.createElement(g,{control:m.exports.createElement(f,{checked:e.isBorder,onChange:e=>t({isBorder:e.target.checked}),name:"Border",color:"primary"}),label:"Border"})),m.exports.createElement("div",null,m.exports.createElement(E,{id:"fontSize-slider",gutterBottom:!0},"Font Size"),m.exports.createElement(y,{min:1,max:100,value:e.fontSize,onChange:(e,r)=>t({fontSize:r}),"aria-labelledby":"fontSize-slider"})),m.exports.createElement("div",null,m.exports.createElement(E,{id:"imgSize-slider",gutterBottom:!0},"Image Size"),m.exports.createElement(y,{min:1,max:1e3,value:e.imageSize,onChange:(e,r)=>t({imageSize:r}),"aria-labelledby":"imgSize-slider"})),m.exports.createElement("div",null,m.exports.createElement(E,{id:"colorPicker",gutterBottom:!0},"Font Color"),m.exports.createElement(q,{color:e.fontColor,onChange:e=>t({fontColor:e.hex})})),m.exports.createElement("div",null,m.exports.createElement(E,{id:"innerBorderSize-slider",gutterBottom:!0},"Inner Border Size"),m.exports.createElement(y,{min:0,max:10,value:e.innerBorderSize,onChange:(e,r)=>t({innerBorderSize:r}),"aria-labelledby":"innerBorderSize-slider"})))},Y=h(s.div`
