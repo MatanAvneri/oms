@@ -1,13 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import { ThemeProvider, createTheme } from "@mui/material";
+import {
+  ThemeProvider,
+  createTheme,
+  PaletteMode,
+  IconButton,
+  useTheme,
+} from "@mui/material";
 import { withTheme, StylesProvider } from "@mui/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import "./App.css";
 import EmailInputs from "./components/EmailInputs";
 import EmailPreview from "./components/EmailPreview";
 import EmailStyles from "./components/EmailStyles";
+
+const ColorModeContext = React.createContext({
+  toggleColorMode: () => {},
+});
 
 const AppContainer = withTheme(styled.div`
   display: grid;
@@ -20,28 +32,67 @@ const AppContainer = withTheme(styled.div`
 `);
 
 const App: React.FC = () => {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: prefersDarkMode ? "dark" : "light",
-        },
-      }),
-    [prefersDarkMode]
-  );
-
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
+console.log('colorMode.toggleColorMode', colorMode.toggleColorMode)
   return (
-    <ThemeProvider theme={theme}>
+    <ToggleColorMode>
       <StylesProvider injectFirst>
         <AppContainer>
+          <IconButton
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
+            onClick={colorMode.toggleColorMode}
+            color="inherit"
+          >
+            {theme.palette.mode === "dark" ? (
+              <Brightness7Icon />
+            ) : (
+              <Brightness4Icon />
+            )}
+          </IconButton>
+
           <EmailPreview />
           <EmailInputs />
           <EmailStyles />
         </AppContainer>
       </StylesProvider>
-    </ThemeProvider>
+    </ToggleColorMode>
+  );
+};
+
+const ToggleColorMode: React.FC = ({ children }) => {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [mode, setMode] = React.useState<PaletteMode>(
+    prefersDarkMode ? "dark" : "light"
+  );
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+          console.log('toggling')
+        setMode(mode === "light" ? "dark" : "light");
+      },
+    }),
+    []
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode]
+  );
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </ColorModeContext.Provider>
   );
 };
 
