@@ -18,6 +18,7 @@ export interface SupportedStyles {
   imageSize: number,
   fontColor: string,
   isBorder: boolean
+    innerBorderSize: number
 }
 
 interface AppState {
@@ -49,6 +50,7 @@ const useStore = create<AppState>(
     }),
     styles: {
       fontSize: 13,
+      innerBorderSize: 1,
       imageSize: 100,
       fontColor: '#000',
       isBorder: true

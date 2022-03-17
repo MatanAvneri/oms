@@ -54,6 +54,14 @@ const EmailStyles: React.FC = () => {
 
         <ColorPicker color={styles.fontColor} onChange={(value) => setStyle({ fontColor: value.hex })} />
       </div>
+    <div>
+        <Typography id="innerBorderSize-slider" gutterBottom>
+            Inner Border Size
+        </Typography>
+
+        <Slider min={0} max={10} value={styles.innerBorderSize} onChange={(_e, value) => setStyle({ innerBorderSize: value as number })} aria-labelledby="innerBorderSize-slider" />
+    </div>
+
     </Container>
   )
 }
