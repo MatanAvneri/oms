@@ -61,12 +61,12 @@ const useStore = create<AppState>(
         state.role = values.role;
         state.phone = values.phone;
         state.website = values.website;
-        return state
+        return state;
       }),
     setValue: (name, value) =>
       set((state) => {
         state[name] = value;
-        return state
+        return state;
       }),
     styles: {
       fontSize: 13,
@@ -82,7 +82,7 @@ const useStore = create<AppState>(
           ...state.styles,
           ...values,
         };
-        return state
+        return state;
       }),
   }))
 );
