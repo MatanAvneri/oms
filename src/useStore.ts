@@ -55,15 +55,17 @@ const useStore = create<AppState>(
     phone: "702-216-9084",
     website: "belekgrup.com",
     setData: (values) =>
-      set((state: AppState) => {
+      set((state) => {
         state.name = values.name;
         state.role = values.role;
         state.phone = values.phone;
         state.website = values.website;
+        return state
       }),
     setValue: (name, value) =>
-      set((state: AppState) => {
+      set((state) => {
         state[name] = value;
+        return state
       }),
     styles: {
       fontSize: 13,
@@ -74,11 +76,12 @@ const useStore = create<AppState>(
       isBorder: true,
     },
     setStyle: (values) =>
-      set((state: AppState) => {
+      set((state) => {
         state.styles = {
           ...state.styles,
           ...values,
         };
+        return state
       }),
   }))
 );
