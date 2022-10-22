@@ -12,7 +12,7 @@ const immer =
           typeof partial === "function"
             ? produce(partial as (state: Draft<T>) => T)
             : (partial as T);
-        return set(nextState, replace);
+        return set(nextState as Partial<T>, replace);
       },
       get,
       api,
