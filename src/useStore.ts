@@ -15,7 +15,8 @@ const immer =
         return set(nextState, replace);
       },
       get,
-      api
+      api,
+      []
     );
 
 export interface SupportedStyles {
