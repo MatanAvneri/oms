@@ -1,10 +1,10 @@
 import create from "zustand";
 
-import { State, StateCreator } from "zustand";
+import { StateCreator } from "zustand";
 import produce, { Draft } from "immer";
 
 const immer =
-  <T extends State>(config: StateCreator<T>): StateCreator<T> =>
+  <T extends unknown>(config: StateCreator<T>): StateCreator<T> =>
   (set, get, api) =>
     config(
       (partial, replace) => {
@@ -15,8 +15,7 @@ const immer =
         return set(nextState as Partial<T>, replace);
       },
       get,
-      api,
-      []
+      api
     );
 
 export interface SupportedStyles {
