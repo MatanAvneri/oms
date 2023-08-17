@@ -1,7 +1,7 @@
 import create from "zustand";
 
 import { StateCreator } from "zustand";
-import produce, { Draft } from "immer";
+import { Draft, produce } from "immer";
 
 const immer =
   <T extends unknown>(config: StateCreator<T>): StateCreator<T> =>
