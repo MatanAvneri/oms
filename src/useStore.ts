@@ -15,7 +15,7 @@ const immer =
         return set(nextState as Partial<T>, replace);
       },
       get,
-      api
+      api,
     );
 
 export interface SupportedStyles {
@@ -42,7 +42,7 @@ interface AppState {
   }) => void;
   setValue: (
     name: "name" | "role" | "phone" | "website" | "logo",
-    value: string
+    value: string,
   ) => void;
   styles: SupportedStyles;
   setStyle: (values: Partial<SupportedStyles>) => void;
@@ -83,7 +83,7 @@ const useStore = create<AppState>(
         };
         return state;
       }),
-  }))
+  })),
 );
 
 export default useStore;
