@@ -1,13 +1,13 @@
 import React from "react";
-import styled from "styled-components";
 import {
   ThemeProvider,
   createTheme,
   PaletteMode,
   IconButton,
   useTheme,
+  styled,
 } from "@mui/material";
-import { withTheme, StylesProvider } from "@mui/styles";
+import { StyledEngineProvider } from "@mui/system";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
@@ -21,7 +21,7 @@ const ColorModeContext = React.createContext({
   toggleColorMode: () => {},
 });
 
-const AppContainer = withTheme(styled.div`
+const AppContainer = styled("div")`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
@@ -29,14 +29,14 @@ const AppContainer = withTheme(styled.div`
   padding: 5rem;
   grid-gap: 5rem;
   background: ${(props) => props.theme.palette.background.default};
-`);
+`;
 
 const App: React.FC = () => {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
 
   return (
-    <StylesProvider injectFirst>
+    <StyledEngineProvider injectFirst>
       <AppContainer>
         <IconButton
           sx={{
@@ -58,7 +58,7 @@ const App: React.FC = () => {
         <EmailInputs />
         <EmailStyles />
       </AppContainer>
-    </StylesProvider>
+    </StyledEngineProvider>
   );
 };
 

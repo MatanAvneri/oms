@@ -10,4 +10,7 @@ export default defineConfig({
       "@mui/styled-engine": "@mui/styled-engine-sc",
     },
   },
+  server: {
+    host: true,
+  },
 });
