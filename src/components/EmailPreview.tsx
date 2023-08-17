@@ -114,7 +114,7 @@ const CopyPortal: React.FC<{ onCopyDone: () => void }> = ({ onCopyDone }) => {
         <Preview ref={previewRef} />
       </div>
     </PortalWrapper>,
-    document.querySelector("body") as HTMLBodyElement
+    document.querySelector("body") as HTMLBodyElement,
   );
 };
 

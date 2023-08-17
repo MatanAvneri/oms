@@ -76,7 +76,7 @@ const ToggleColorMode: React.VFC = () => {
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
     }),
-    []
+    [],
   );
 
   const theme = React.useMemo(
@@ -86,7 +86,7 @@ const ToggleColorMode: React.VFC = () => {
           mode,
         },
       }),
-    [mode]
+    [mode],
   );
 
   return (
