@@ -21,7 +21,7 @@ const ColorModeContext = React.createContext({
   toggleColorMode: () => {},
 });
 
-const AppContainer = styled('div')`
+const AppContainer = styled("div")`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
